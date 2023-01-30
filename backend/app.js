@@ -2,14 +2,20 @@ const { google } = require("googleapis");
 const express = require("express");
 const app = express();
 const cors = require('cors');
+require('dotenv').config()
+
 
 
 app.use(cors());
 
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID
+const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
+const REDIRECT_URI = process.env.GOOGLE_CLIENT_REDIRECT_URI
+
 const oAuth2Client = new google.auth.OAuth2(
-    "792384898936-17eq4677ondom7fk2i7bqbai5dvh55vu.apps.googleusercontent.com",
-    "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",
-    "http://localhost:3000"
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI
 );
   
   app.get("/rest/v1/calendar/init", (req, res) => {
@@ -17,14 +23,12 @@ const oAuth2Client = new google.auth.OAuth2(
       access_type: "offline",
       scope: ["https://www.googleapis.com/auth/calendar.readonly"],
     });
-    console.log(authUrl);
     res.redirect(authUrl);
   });
   
   app.get("/rest/v1/calendar/redirect/", async (req, res) => {
     try {
       const { code } = req.query;
-      console.log(code);
       const { tokens } = await oAuth2Client.getToken(code);
       oAuth2Client.setCredentials(tokens);
   
