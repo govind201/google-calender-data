@@ -15,8 +15,6 @@ Visit http://localhost:3000/rest/v1/calendar/init in your web browser to start t
 Follow the prompts to grant access to your Google Calendar.
 The app will redirect to http://localhost:3000/rest/v1/calendar/redirect with an authorization code. The app will then use the authorization code to get the access token and retrieve a list of events from your Google Calendar.
 The list of events will be displayed in the browser.
-## Code Explanation
-The code for the app is organized into two main parts: the views and the helper functions.
 
 ## Views
 /rest/v1/calendar/init (GoogleCalendarInitView): This view starts the OAuth2 flow by redirecting the user to the authorization URL.
