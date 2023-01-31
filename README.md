@@ -17,7 +17,7 @@ The app will redirect to http://localhost:3000/rest/v1/calendar/redirect with an
 The list of events will be displayed in the browser.
 
 ## Views
-/rest/v1/calendar/init (GoogleCalendarInitView): This view starts the OAuth2 flow by redirecting the user to the authorization URL.
-/rest/v1/calendar/redirect (GoogleCalendarRedirectView): This view handles the redirect from Google with the authorization code. The view uses the authorization code to get the access token and retrieve a list of events from the user's Google Calendar.
+/rest/v1/calendar/init: This view starts the OAuth2 flow by redirecting the user to the authorization URL.
+/rest/v1/calendar/redirect: This view handles the redirect from Google with the authorization code. The view uses the authorization code to get the access token and retrieve a list of events from the user's Google Calendar.
 # Conclusion
 This app demonstrates how to use the googleapis library to implement Google Calendar integration using OAuth2 for authentication. By using this app as a starting point, you can build your own app that integrates with Google Calendar in a secure and reliable way.
