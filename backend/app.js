@@ -49,6 +49,10 @@ const oAuth2Client = new google.auth.OAuth2(
     }
   });
 
+  app.get('/', (req, res)=>{
+    res.send("Welcome to the Node app");
+  })
+
 app.listen(PORT, () => {
   console.log("Listening on port 3000");
 });
