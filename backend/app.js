@@ -11,6 +11,7 @@ app.use(cors());
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 const REDIRECT_URI = process.env.GOOGLE_CLIENT_REDIRECT_URI
+const PORT = process.env.PORT | 3001;
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENT_ID,
@@ -48,6 +49,6 @@ const oAuth2Client = new google.auth.OAuth2(
     }
   });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log("Listening on port 3000");
 });
